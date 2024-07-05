@@ -6,6 +6,8 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
+$idrol = $_SESSION['user_role'];
+
 ?>
 
 
@@ -34,6 +36,9 @@ if (!isset($_SESSION['user_id'])) {
             <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
         </form>
+        <?php if ($idrol == 1): ?>
+            <a href="admin.php" class="btn btn-primary ml-2">Admin</a>
+        <?php endif; ?>
         <a href="logout.php">Cerrar sesion</a>
         <button>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
