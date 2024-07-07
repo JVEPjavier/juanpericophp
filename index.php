@@ -6,6 +6,10 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
+if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = array();
+}
+
 $idrol = $_SESSION['user_role'];
 
 ?>
@@ -36,6 +40,7 @@ $idrol = $_SESSION['user_role'];
             <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
         </form>
+        <a href="cart.php" class="btn btn-primary ml-2">Carrito</a>
         <?php if ($idrol == 1): ?>
             <a href="admin.php" class="btn btn-primary ml-2">Admin</a>
         <?php endif; ?>
@@ -65,7 +70,7 @@ $idrol = $_SESSION['user_role'];
                     echo '<p class="card-text">' . $row["descripcion"] . '</p>';
                     echo '<p class="card-text">Precio: $' . $row["precio"] . '</p>';
                     echo '<a href="producto.php?id=' . $row["id"] . '" class="btn btn-primary">Ver Producto</a>';
-                    echo '<button class="btn btn-primary ml-2">Añadir al carrito</button>';
+                    echo '<button class="btn btn-primary ml-2 add-to-cart" data-id="' . $row["id"] . '">Añadir al carrito</button>';
                     echo '</div>';
                     echo '</div>';
                     echo '</div>';
@@ -83,6 +88,21 @@ $idrol = $_SESSION['user_role'];
     <script src="EXT/popper.min.js"></script>
     <script src="EXT/custom.js"></script>
     <script src="EXT/BOOTSTRAP/js/bootstrap.bundle.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.add-to-cart').click(function() {
+            var productId = $(this).data('id');
+            $.ajax({
+                url: 'add_to_cart.php',
+                method: 'POST',
+                data: { id: productId },
+                success: function(response) {
+                    alert('Producto añadido al carrito');
+                }
+            });
+        });
+    });
+</script>
 
 </body>
 

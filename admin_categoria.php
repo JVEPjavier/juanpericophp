@@ -12,43 +12,37 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] != 1) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Administrar Categorías</title>
     <link rel="stylesheet" href="EXT/BOOTSTRAP/css/bootstrap.min.css">
 </head>
 <body>
-<div class="container">
-        <h1 class="my-4">Gestionar Productos</h1>
-        <a href="admin_agregar_producto.php" class="btn btn-success mb-4">Agregar Producto</a>
+    <div class="container">
+        <h1 class="my-4">Gestionar Categorías</h1>
+        <a href="admin_agregar_categoria.php" class="btn btn-success mb-4">Agregar Categoría</a>
         <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>Nombre</th>
-                    <th>Descripción</th>
-                    <th>Precio</th>
-                    <th>Imagen</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                $sql = "SELECT * FROM producto";
+                $sql = "SELECT * FROM Categoria";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>";
-                        echo "<td>" . $row["nombreProducto"] . "</td>";
-                        echo "<td>" . $row["descripcion"] . "</td>";
-                        echo "<td>$" . $row["precio"] . "</td>";
-                        echo "<td><img src='imagenes/" . $row["imagen"] . "' width='50' height='50'></td>";
+                        echo "<td>" . $row["nombreCategoria"] . "</td>";
                         echo "<td>";
-                        echo "<a href='admin_editar_producto.php?id=" . $row["id"] . "' class='btn btn-primary'>Editar</a> ";
-                        echo "<a href='admin_eliminar_producto.php?id=" . $row["id"] . "' class='btn btn-danger'>Eliminar</a>";
+                        echo "<a href='admin_editar_categoria.php?id=" . $row["id"] . "' class='btn btn-primary'>Editar</a> ";
+                        echo "<a href='admin_eliminar_categoria.php?id=" . $row["id"] . "' class='btn btn-danger'>Eliminar</a>";
                         echo "</td>";
                         echo "</tr>";
                     }
                 } else {
-                    echo "<tr><td colspan='6'>No hay productos</td></tr>";
+                    echo "<tr><td colspan='3'>No hay categorías</td></tr>";
                 }
                 $conn->close();
                 ?>
