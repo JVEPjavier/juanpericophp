@@ -27,29 +27,70 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <head>
     <title>Registro de Usuario</title>
+    <link rel="stylesheet" href="EXT/BOOTSTRAP/css/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
+        .register-container {
+            width: 100%;
+            max-width: 500px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .register-header {
+            margin-bottom: 20px;
+        }
+        .login-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
 </head>
 <body>
-    <h2>Registro de Usuario</h2>
-    <form method="post" action="register.php">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required><br>
+    <div class="register-container">
+        <h2 class="register-header text-center">Registro de Usuario</h2>
+        <form method="post" action="register.php">
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="apellido">Apellido:</label>
+                <input type="text" class="form-control" id="apellido" name="apellido" required>
+            </div>
+            <div class="form-group">
+                <label for="rut">RUT:</label>
+                <input type="text" class="form-control" id="rut" name="rut" required>
+            </div>
+            <div class="form-group">
+                <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+                <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" required>
+            </div>
+            <div class="form-group">
+                <label for="contraseña">Contraseña:</label>
+                <input type="password" class="form-control" id="contraseña" name="contraseña" required>
+            </div>
+            <div class="form-group">
+                <label for="correo_electronico">Correo Electrónico:</label>
+                <input type="email" class="form-control" id="correo_electronico" name="correo_electronico" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Registrar</button>
+        </form>
+        <div class="login-link">
+            <p>¿Ya tienes una cuenta? <a href="login.php">Inicia sesión</a></p>
+        </div>
+    </div>
 
-        <label for="apellido">Apellido:</label>
-        <input type="text" id="apellido" name="apellido" required><br>
-
-        <label for="rut">RUT:</label>
-        <input type="text" id="rut" name="rut" required><br>
-
-        <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
-        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required><br>
-
-        <label for="contraseña">Contraseña:</label>
-        <input type="password" id="contraseña" name="contraseña" required><br>
-
-        <label for="correo_electronico">Correo Electrónico:</label>
-        <input type="email" id="correo_electronico" name="correo_electronico" required><br>
-
-        <input type="submit" value="Registrar">
-    </form>
+    <script src="EXT/jquery-3.7.1.min.js"></script>
+    <script src="EXT/popper.min.js"></script>
+    <script src="EXT/custom.js"></script>
+    <script src="EXT/BOOTSTRAP/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

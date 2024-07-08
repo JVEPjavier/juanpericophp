@@ -33,10 +33,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <title>Login</title>
     <link rel="stylesheet" href="EXT/BOOTSTRAP/css/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .login-header {
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Login</h2>
+    <div class="login-container">
+        <h2 class="login-header text-center">Iniciar Sesión</h2>
         <?php if (isset($error)): ?>
             <div class="alert alert-danger"><?php echo $error; ?></div>
         <?php endif; ?>
@@ -49,10 +69,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label for="contraseña">Contraseña:</label>
                 <input type="password" class="form-control" id="contraseña" name="contraseña" required>
             </div>
-            <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
-            <div class="form-group">
-                <p>No tienes una cuenta?</p>
-                <a href="register.php">Registrate</a>
+            <button type="submit" class="btn btn-primary btn-block mt-3">Iniciar Sesión</button>
+            <div class="form-group text-center mt-3">
+                <p>¿No tienes una cuenta?</p>
+                <a href="register.php">Regístrate</a>
             </div>
         </form>
     </div>

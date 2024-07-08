@@ -37,6 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <input type="text" class="form-control" id="nombre_categoria" name="nombre_categoria" required>
             </div>
             <button type="submit" class="btn btn-success">Agregar</button>
+            <a href="admin_categoria.php" class="btn btn-secondary">Volver</a>
         </form>
     </div>
 </body>

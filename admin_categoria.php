@@ -19,6 +19,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] != 1) {
     <div class="container">
         <h1 class="my-4">Gestionar Categorías</h1>
         <a href="admin_agregar_categoria.php" class="btn btn-success mb-4">Agregar Categoría</a>
+        <a href="admin.php" class="btn btn-secondary mb-4">Volver al Menú Admin</a>
         <table class="table table-bordered">
             <thead>
                 <tr>

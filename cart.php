@@ -16,13 +16,25 @@ $cart = $_SESSION['cart'];
     <meta charset="UTF-8">
     <title>Carrito de Compras</title>
     <link rel="stylesheet" href="EXT/BOOTSTRAP/css/bootstrap.min.css">
+    <style>
+        .table th, .table td {
+            vertical-align: middle;
+            text-align: center;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .btn-back {
+            margin-right: 10px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h2>Carrito de Compras</h2>
+        <h2 class="text-center mb-4">Carrito de Compras</h2>
         <?php if (!empty($cart)): ?>
-            <table class="table table-bordered">
-                <thead>
+            <table class="table table-bordered table-hover">
+                <thead class="thead-light">
                     <tr>
                         <th>Producto</th>
                         <th>Precio</th>
@@ -42,26 +54,34 @@ $cart = $_SESSION['cart'];
                     ?>
                             <tr>
                                 <td><?php echo $row['nombreProducto']; ?></td>
-                                <td><?php echo $row['precio']; ?></td>
+                                <td>$<?php echo $row['precio']; ?></td>
                                 <td><?php echo $quantity; ?></td>
-                                <td><?php echo $subtotal; ?></td>
+                                <td>$<?php echo $subtotal; ?></td>
                             </tr>
                     <?php
                         endif;
                     endforeach;
                     ?>
                     <tr>
-                        <td colspan="3" align="right">Total</td>
-                        <td><?php echo $total; ?></td>
+                        <td colspan="3" class="text-right"><strong>Total</strong></td>
+                        <td><strong>$<?php echo $total; ?></strong></td>
                     </tr>
                 </tbody>
             </table>
-            <form action="confirm_purchase.php" method="post">
-                <button type="submit" class="btn btn-success">Confirmar Compra</button>
-            </form>
+            <div class="text-center mt-4">
+                <a href="index.php" class="btn btn-secondary btn-lg btn-back">Volver al Inicio</a>
+                <form action="confirm_purchase.php" method="post" class="d-inline">
+                    <button type="submit" class="btn btn-success btn-lg">Confirmar Compra</button>
+                </form>
+            </div>
         <?php else: ?>
-            <p>El carrito está vacío.</p>
+            <div class="alert alert-warning text-center">
+                <strong>El carrito está vacío.</strong>
+            </div>
+            <div class="text-center mt-4">
+                <a href="index.php" class="btn btn-secondary btn-lg">Volver al Inicio</a>
+            </div>
         <?php endif; ?>
     </div>
-</body>
-</html>
+
+    <script src="EXT/jquery-3

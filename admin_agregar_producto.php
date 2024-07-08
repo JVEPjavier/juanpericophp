@@ -33,7 +33,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 }
 
-// Obtener categorías y proveedores
 $sql_categoria = "SELECT * FROM categoria";
 $result_categoria = $conn->query($sql_categoria);
 
@@ -92,6 +91,7 @@ $result_proveedor = $conn->query($sql_proveedor);
                 </select>
             </div>
             <button type="submit" class="btn btn-success">Agregar Producto</button>
+            <a href="admin_productos.php" class="btn btn-secondary">Volver</a>
         </form>
     </div>
 </body>
